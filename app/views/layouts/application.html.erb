@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <% if request.path == '/todo_lists' %>
+    <div class="header">
+      <span>Best Todo Maker Ever</span>
+    </div>
+  <% else %>
+    <div class="header">
+      <a href="/todo_lists">Back Home</a>
+    </div>
+  <% end %>
 <%= yield %>
 
 </body>
