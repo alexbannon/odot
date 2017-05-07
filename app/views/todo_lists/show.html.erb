@@ -1,3 +1,7 @@
+<!-- <% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %> -->
+
 <%= @todo_list.title %>
 <%= @todo_list.description %>
 
@@ -6,10 +10,20 @@
   <%= f.text_field :content %>
   <%= f.submit %>
 <% end %>
+<h4>Completed Items</h4>
 <ul>
-<% @todo_list.todo_items.each do |list_item| %>
+<% @todo_list.todo_items.complete.each do |list_item| %>
   <li>
-    list_item.title
+    <span class="list_item"><%= list_item.content %></span><%= link_to "Mark Incomplete", complete_todo_list_todo_item_path(@todo_list, list_item), method: :patch %>
   </li>
 <% end %>
+</ul>
+<h4>Incomplete Items</h4>
+<ul>
+<% @todo_list.todo_items.incomplete.each do |list_item| %>
+  <li>
+    <span class="list_item"><%= list_item.content %></span><%= link_to "Mark Complete", complete_todo_list_todo_item_path(@todo_list, list_item), method: :patch %>
+  </li>
+<% end %>
+
 </ul>

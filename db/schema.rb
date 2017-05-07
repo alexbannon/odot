@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507200456) do
+ActiveRecord::Schema.define(version: 20170507204720) do
 
   create_table "todo_items", force: :cascade do |t|
     t.string   "content",      limit: 255
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170507200456) do
     t.datetime "updated_at",               null: false
     t.integer  "todo_list_id", limit: 4
     t.integer  "todo_item_id", limit: 4
+    t.datetime "completed_at"
   end
 
   add_index "todo_items", ["todo_list_id"], name: "index_todo_items_on_todo_list_id", using: :btree
