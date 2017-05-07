@@ -1,0 +1,15 @@
+<%= @todo_list.title %>
+<%= @todo_list.description %>
+
+<%= form_for [@todo_list, TodoItem.new] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
+<ul>
+<% @todo_list.todo_items.each do |list_item| %>
+  <li>
+    list_item.title
+  </li>
+<% end %>
+</ul>
