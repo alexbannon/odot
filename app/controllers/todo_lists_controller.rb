@@ -16,7 +16,7 @@ class TodoListsController < ApplicationController
     if @todo_list.save
       redirect_to @todo_list
     else
-
+      render '/todo_lists/new'
     end
   end
 
